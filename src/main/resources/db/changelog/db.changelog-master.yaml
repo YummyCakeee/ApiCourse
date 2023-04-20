@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: NikitaP
+      changes:
+        - include:
+          file: db/changelog/0001/createTables.sql
