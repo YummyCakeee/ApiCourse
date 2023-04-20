@@ -12,6 +12,8 @@ spring:
         ddl-auto: false
   profiles:
     active: local
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 
 server:
   servlet:
