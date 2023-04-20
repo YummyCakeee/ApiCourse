@@ -10,8 +10,10 @@ import ru.nikita.apicourse.http.response.BasicResponse;
 import ru.nikita.apicourse.mapper.UserMapper;
 import ru.nikita.apicourse.services.RegistrationService;
 
+import static ru.nikita.apicourse.constants.Endpoints.API_ROOT;
+
 @RestController
-@RequestMapping("/api/register")
+@RequestMapping(API_ROOT + "/register")
 @RequiredArgsConstructor
 public class RegistrationController {
 

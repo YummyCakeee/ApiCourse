@@ -13,8 +13,10 @@ import ru.nikita.apicourse.services.UserService;
 
 import java.util.List;
 
+import static ru.nikita.apicourse.constants.Endpoints.API_ROOT;
+
 @RestController()
-@RequestMapping("/api/users")
+@RequestMapping(API_ROOT + "users")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
