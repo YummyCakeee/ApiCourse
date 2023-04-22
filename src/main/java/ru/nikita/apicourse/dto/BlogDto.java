@@ -1,4 +1,4 @@
-package ru.nikita.apicourse.dao;
+package ru.nikita.apicourse.dto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class BlogDao {
+public class BlogDto {
     private Long id;
     private Long userId;
     private String name;

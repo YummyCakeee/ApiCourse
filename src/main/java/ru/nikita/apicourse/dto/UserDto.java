@@ -1,16 +1,17 @@
-package ru.nikita.apicourse.dao;
+package ru.nikita.apicourse.dto;
 
 import lombok.*;
+import ru.nikita.apicourse.models.Role;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
 @Setter
-public class UserDao {
+public class UserDto {
     private Long id;
     private String email;
     private String firstName;
     private String secondName;
-    private String password;
+    private Role role;
 }

@@ -7,9 +7,12 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        show_sql: true
-        ddl-auto: false
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+    show_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   profiles:
     active: local
   liquibase:
@@ -19,3 +22,7 @@ server:
   servlet:
     session:
       timeout: 60m
+
+cookie:
+  token:
+    secret: 12345

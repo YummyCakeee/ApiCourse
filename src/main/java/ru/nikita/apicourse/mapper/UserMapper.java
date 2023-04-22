@@ -1,26 +1,27 @@
 package ru.nikita.apicourse.mapper;
 
-import ru.nikita.apicourse.dao.UserDao;
+import ru.nikita.apicourse.dto.UserDto;
 import ru.nikita.apicourse.models.User;
 
 public class UserMapper {
 
-    public static UserDao userToUserDao(User user) {
-        return UserDao.builder()
+    public static UserDto userToUserDto(User user) {
+        return UserDto.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
                 .secondName(user.getSecondName())
                 .email(user.getEmail())
+                .role(user.getRole())
                 .build();
     }
 
-    public static User userDaoToUser(UserDao userDao) {
+    public static User userDtoToUser(UserDto userDto) {
         return User.builder()
-                .id(userDao.getId())
-                .firstName(userDao.getFirstName())
-                .secondName(userDao.getSecondName())
-                .email(userDao.getEmail())
-                .password(userDao.getPassword())
+                .id(userDto.getId())
+                .firstName(userDto.getFirstName())
+                .secondName(userDto.getSecondName())
+                .email(userDto.getEmail())
+                .role(userDto.getRole())
                 .build();
     }
 }

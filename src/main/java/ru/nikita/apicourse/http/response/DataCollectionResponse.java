@@ -8,10 +8,17 @@ import lombok.Setter;
 import java.util.List;
 
 @Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class DataCollectionResponse extends BasicResponse {
     private List<?> data;
     private Integer count;
+    public DataCollectionResponse(List<?> data) {
+        this.data = data;
+        count = data.size();
+    }
+
+    public void setData(List<?> data) {
+        this.data = data;
+        count = data.size();
+    }
 }
