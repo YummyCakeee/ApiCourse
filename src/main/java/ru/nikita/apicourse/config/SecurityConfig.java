@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .and()
                 .addFilterBefore(cookieAuthenticationFilter, BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
-                .requestMatchers(API_ROOT + "/auth/**")
+                .requestMatchers(API_ROOT + "/auth/**", "swagger-ui/**","/v3/api-docs/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

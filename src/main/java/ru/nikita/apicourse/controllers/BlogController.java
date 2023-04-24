@@ -1,6 +1,5 @@
 package ru.nikita.apicourse.controllers;
 
-import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,6 @@ import static ru.nikita.apicourse.constants.Endpoints.API_ROOT;
 @RestController
 @RequestMapping(API_ROOT + "/blogs")
 @RequiredArgsConstructor
-@Api()
 public class BlogController {
     private final BlogService blogService;
 

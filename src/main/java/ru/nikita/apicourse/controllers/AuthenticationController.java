@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import ru.nikita.apicourse.exceptions.AuthenticationException;
 import ru.nikita.apicourse.exceptions.RegistrationException;
@@ -45,7 +46,7 @@ public class AuthenticationController {
             response.addCookie(cookie);
 
             return new ResponseEntity<>(new BasicResponse(true), HttpStatus.OK);
-        } catch (AuthenticationException ex) {
+        } catch (UsernameNotFoundException | AuthenticationException ex) {
             return new ResponseEntity<>(new BasicResponse(false, "Invalid login or password"), HttpStatus.BAD_REQUEST);
         }
     }
