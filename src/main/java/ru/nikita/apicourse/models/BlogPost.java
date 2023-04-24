@@ -1,19 +1,17 @@
 package ru.nikita.apicourse.models;
 
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Table(name = "blog_posts")
 public class BlogPost {
     @Id
@@ -28,10 +26,22 @@ public class BlogPost {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "created_at")
-    private Timestamp createdAt;
+    @Column(name = "create_date", columnDefinition = "TIMESTAMP")
+    private LocalDateTime createDate;
 
-    @Column(name = "edited_at")
-    private Timestamp editedAt;
+    @Column(name = "edit_date", columnDefinition = "TIMESTAMP")
+    private LocalDateTime editDate;
+
+    @PrePersist
+    private void onSave() {
+        final LocalDateTime date = LocalDateTime.now();
+        createDate = date;
+        editDate = date;
+    }
+
+    @PreUpdate
+    private void onUpdate() {
+        editDate = LocalDateTime.now();
+    }
 
 }
