@@ -1,5 +1,6 @@
 package ru.nikita.apicourse.services;
 
+import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,6 +35,10 @@ public class BlogService {
 
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
+    }
+
+    public Blog getBlogById(Long id) {
+        return blogRepository.findById(id).orElseThrow(EntityExistsException::new);
     }
 
     public List<Blog> getBlogsByUserId(Long userId) {

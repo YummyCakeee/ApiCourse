@@ -45,13 +45,17 @@ public class BlogController {
     }
 
     @GetMapping
-    public ResponseEntity<DataCollectionResponse> getBlogs(@RequestParam(value = "user_id", required = false) Long userId) {
-        List<BlogDto> blogs;
-        if (Objects.isNull(userId))
-            blogs = blogService.getAllBlogs().stream().map(BlogMapper::blogToBlogDto).toList();
-        else
-            blogs = blogService.getBlogsByUserId(userId).stream().map(BlogMapper::blogToBlogDto).toList();
+    public ResponseEntity<DataCollectionResponse> getBlogs() {
+        List<BlogDto> blogs = blogService.getAllBlogs().stream().map(BlogMapper::blogToBlogDto).toList();
         DataCollectionResponse response = new DataCollectionResponse(blogs);
+        response.setSuccess(true);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DataResponse> getBlog(@PathVariable("id") Long id) {
+        BlogDto blog = BlogMapper.blogToBlogDto(blogService.getBlogById(id));
+        DataResponse response = new DataResponse(blog);
         response.setSuccess(true);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
