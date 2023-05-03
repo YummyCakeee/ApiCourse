@@ -1,9 +1,11 @@
 package ru.nikita.apicourse.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import ru.nikita.apicourse.dto.BlogDto;
 import ru.nikita.apicourse.dto.BlogPostDto;
@@ -18,6 +20,7 @@ import ru.nikita.apicourse.models.BlogPost;
 import ru.nikita.apicourse.models.User;
 import ru.nikita.apicourse.services.BlogService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
