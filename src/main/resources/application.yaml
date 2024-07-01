@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: @activeProfile@
+  datasource:
+    url: jdbc:postgresql://localhost:5432/api_course
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+    show_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+server:
+  servlet:
+    session:
+      timeout: 60m
+
+jwt:
+  access:
+    token: dmcsj89khjgxl23nkjncxlkclkkjnmxpwquk7y6gwq4hoijbhnjr32fsuygd2we9iducqwjcdg7cjdsjf23ndsk5hd8nqdoidsj932mdm32ndmwe1odm2
+    lifetime: 60
+  refresh:
+    lifetime: 2592000

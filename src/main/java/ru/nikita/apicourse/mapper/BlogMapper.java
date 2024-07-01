@@ -1,9 +1,7 @@
 package ru.nikita.apicourse.mapper;
 
 import ru.nikita.apicourse.dto.BlogDto;
-import ru.nikita.apicourse.dto.UserDto;
-import ru.nikita.apicourse.models.Blog;
-import ru.nikita.apicourse.models.User;
+import ru.nikita.apicourse.core.domain.blog.Blog;
 
 public class BlogMapper {
 

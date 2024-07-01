@@ -1,7 +1,7 @@
 package ru.nikita.apicourse.mapper;
 
 import ru.nikita.apicourse.dto.BlogPostDto;
-import ru.nikita.apicourse.models.BlogPost;
+import ru.nikita.apicourse.core.domain.blog.post.BlogPost;
 
 public class BlogPostMapper {
 
@@ -10,8 +10,8 @@ public class BlogPostMapper {
                 .id(blogPost.getId())
                 .blogId(blogPost.getBlog().getId())
                 .content(blogPost.getContent())
-                .createDate(blogPost.getCreateDate())
-                .editDate(blogPost.getEditDate())
+                .createDate(blogPost.getCreatedAt())
+                .editDate(blogPost.getUpdatedAt())
                 .build();
     }
 

@@ -1,10 +1,8 @@
 package ru.nikita.apicourse.dto;
 
 import lombok.*;
-import ru.nikita.apicourse.models.Blog;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
